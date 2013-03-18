@@ -1,0 +1,92 @@
+// Media Query Mixin
+//
+// Three sample usage options
+//
+// .foo
+//   color: olive
+//   +media-query(wider-than-iphone-landscape)
+//     color: lavender
+//
+// +media-query(wider-than-iphone-landscape)
+//   .bar
+//     color: lemonchiffon
+//
+// +media-query(wider-than-iphone-landscape)
+//   .baz
+//     color: khaki
+//     +media-query(wider-than-iphone-landscape)
+//       color: cadetblue
+
+=media-query($media)
+
+  @if $media == retina
+    @media screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+      @content
+
+  @else if $media == iphone-landscape-and-wider
+    @media screen and (min-width: $iphone-landscape-width)
+      @content
+  @else if $media == galaxy-tab-and-wider
+    @media screen and (min-width: $galaxy-tab-width)
+      @content
+  @else if $media == ipad-portrait-and-wider
+    @media screen and (min-width: $ipad-portrait-width)
+      @content
+  @else if $media == ipad-landscape-and-wider
+    @media screen and (min-width: $ipad-landscape-width)
+      @content
+
+  @else if $media == narrower-than-iphone-landscape
+    @media screen and (max-width: $iphone-landscape-width - 1)
+      @content
+  @else if $media == narrower-than-galaxy-tab
+    @media screen and (max-width: $galaxy-tab-width - 1)
+      @content
+  @else if $media == narrower-than-ipad-portrait
+    @media screen and (max-width: $ipad-portrait-width - 1)
+      @content
+  @else if $media == narrower-than-ipad-landscape
+    @media screen and (max-width: $ipad-landscape-width - 1)
+      @content
+
+  @else if $media == iphone-landscape-until-galaxy-tab
+    @media screen and (min-width: $iphone-landscape-width) and (max-width: $galaxy-tab-width - 1)
+      @content
+  @else if $media == galaxy-tab-until-ipad-portrait
+    @media screen and (min-width: $galaxy-tab-width) and (max-width: $ipad-portrait-width - 1)
+      @content
+  @else if $media == ipad-portrait-until-ipad-landscape
+    @media screen and (min-width: $ipad-portrait-width) and (max-width: $ipad-landscape-width - 1)
+      @content
+
+  @else if $media == wider-than-iphone-portrait
+    @media screen and (min-width: $iphone-portrait-width + 1)
+      @content
+  @else if $media == wider-than-iphone-landscape
+    @media screen and (min-width: $iphone-landscape-width + 1)
+      @content
+  @else if $media == wider-than-galaxy-tab
+    @media screen and (min-width: $galaxy-tab-width + 1)
+      @content
+  @else if $media == wider-than-ipad-portrait
+    @media screen and (min-width: $ipad-portrait-width + 1)
+      @content
+  @else if $media == wider-than-ipad-landscape
+    @media screen and (min-width: $ipad-landscape-width + 1)
+      @content
+
+  @else if $media == iphone-portrait-and-narrower
+    @media screen and (max-width: $iphone-portrait-width)
+      @content
+  @else if $media == iphone-landscape-and-narrower
+    @media screen and (max-width: $iphone-landscape-width)
+      @content
+  @else if $media == galaxy-tab-and-narrower
+    @media screen and (max-width: $galaxy-tab-width)
+      @content
+  @else if $media == ipad-portrait-and-narrower
+    @media screen and (max-width: $ipad-portrait-width)
+      @content
+  @else if $media == ipad-landscape-and-narrower
+    @media screen and (max-width: $ipad-landscape-width)
+      @content

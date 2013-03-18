@@ -1,0 +1,24 @@
+.foo {
+  color: olive;
+}
+@media screen and (min-width: 481px) {
+  .foo {
+    color: lavender;
+  }
+}
+
+@media screen and (min-width: 481px) {
+  .bar {
+    color: lemonchiffon;
+  }
+}
+@media screen and (min-width: 481px) {
+  .baz {
+    color: khaki;
+  }
+}
+@media screen and (min-width: 481px) and (min-width: 481px) {
+  .baz {
+    color: cadetblue;
+  }
+}

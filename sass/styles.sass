@@ -1,0 +1,17 @@
+@import constants
+@import mixins_responsive
+
+.foo
+  color: olive
+  +media-query(wider-than-iphone-landscape)
+    color: lavender
+
++media-query(wider-than-iphone-landscape)
+  .bar
+    color: lemonchiffon
+
++media-query(wider-than-iphone-landscape)
+  .baz
+    color: khaki
+    +media-query(wider-than-iphone-landscape)
+      color: cadetblue
